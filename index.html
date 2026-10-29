@@ -8,77 +8,67 @@
         :root {
             --primary-color: #1b365d;
             --secondary-color: #2c4d75;
-            --accent-color: #d9534f;
-            --bg-color: #eef2f5;
+            --bg-color: #f4f7f6;
             --card-bg: #ffffff;
             --text-color: #333333;
-            --border-color: #d1d5db;
+            --border-color: #cccccc;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            padding: 20px 10px;
-            line-height: 1.5;
+            padding: 15px;
+            line-height: 1.4;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
             background: var(--card-bg);
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .header {
-            text-align: center;
-            background: var(--primary-color);
-            color: white;
-            padding: 15px;
+            padding: 20px;
             border-radius: 8px;
-            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .header h1 {
-            font-size: 1.2rem;
-            letter-spacing: 0.5px;
+        h1 {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
             text-transform: uppercase;
         }
 
         .form-section {
-            margin-bottom: 20px;
-            padding: 18px;
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-left: 4px solid var(--primary-color);
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #fafafa;
+            border: 1px solid #e1e1e1;
             border-radius: 6px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .form-section h2 {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--secondary-color);
-            margin-bottom: 12px;
-            border-bottom: 2px solid #f3f4f6;
-            padding-bottom: 6px;
-            text-transform: uppercase;
-            font-weight: 700;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
         }
 
         label {
             display: block;
-            font-weight: 600;
-            font-size: 0.88rem;
-            margin-bottom: 6px;
-            color: #374151;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            color: #444;
         }
 
         input[type="text"],
@@ -86,116 +76,104 @@
         select,
         textarea {
             width: 100%;
-            padding: 10px 12px;
+            padding: 8px;
             border: 1px solid var(--border-color);
-            border-radius: 6px;
+            border-radius: 4px;
             font-size: 0.9rem;
-            margin-bottom: 12px;
-            background-color: #fafafa;
-            transition: all 0.2s;
-        }
-
-        input[type="text"]:focus,
-        input[type="date"]:focus,
-        textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            background-color: #ffffff;
-            box-shadow: 0 0 0 3px rgba(27, 54, 93, 0.1);
+            margin-bottom: 10px;
         }
 
         textarea {
             resize: vertical;
-            height: 80px;
+            height: 70px;
         }
 
         .radio-group, .checkbox-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 12px;
-            background: #f9fafb;
-            padding: 10px;
-            border-radius: 6px;
-            border: 1px dashed #e5e7eb;
+            gap: 15px;
+            margin-bottom: 10px;
         }
 
         .radio-group label, .checkbox-group label {
-            font-weight: 500;
+            font-weight: normal;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             cursor: pointer;
-            font-size: 0.88rem;
-            color: #4b5563;
+            font-size: 0.85rem;
         }
 
         .photo-upload {
-            border: 2px dashed #cbd5e1;
-            padding: 12px;
+            border: 2px dashed var(--border-color);
+            padding: 10px;
             text-align: center;
-            border-radius: 6px;
-            background: #f8fafc;
-            margin-bottom: 12px;
-            transition: border-color 0.2s;
-        }
-
-        .photo-upload:hover {
-            border-color: var(--primary-color);
+            border-radius: 4px;
+            background: #fff;
+            margin-bottom: 10px;
         }
 
         .photo-upload input {
-            font-size: 0.85rem;
-            color: #64748b;
+            font-size: 0.8rem;
         }
 
         .preview-container {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
-            margin-top: 8px;
+            margin-top: 5px;
             justify-content: center;
         }
 
         .preview-img {
-            max-width: 110px;
-            max-height: 110px;
-            border-radius: 6px;
-            border: 2px solid #e2e8f0;
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
             object-fit: cover;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .btn-container {
-            margin-top: 25px;
+            margin-top: 20px;
         }
 
         button {
             width: 100%;
-            padding: 15px;
+            padding: 14px;
             border: none;
-            border-radius: 6px;
-            font-size: 1.05rem;
+            border-radius: 5px;
+            font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
             background-color: var(--primary-color);
             color: white;
-            box-shadow: 0 4px 6px rgba(27, 54, 93, 0.2);
-            transition: all 0.2s;
+            transition: background 0.2s;
         }
 
         button:hover {
             background-color: var(--secondary-color);
-            transform: translateY(-1px);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            .btn-container, .photo-upload input {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header">
-        <h1>ADDA RNCO - Relatório de Não Conformidade</h1>
-    </div>
+    <h1>ADDA RNCO - Relatório de Não Conformidade de Peças em Obra</h1>
 
     <form id="rncoForm">
         <!-- Identificação Básica -->
@@ -221,7 +199,7 @@
             <input type="text" id="codigoPeca" placeholder="Ex: PA01, Viga V-02..." required>
         </div>
 
-        <!-- Avaliação e Destino -->
+        <!-- Avaliação e Mapeamento -->
         <div class="form-section">
             <h2>2. Avaliação e Destino</h2>
 
@@ -280,19 +258,13 @@
 
         <!-- Botão Único -->
         <div class="btn-container">
-            <button type="button" onclick="gerarRelatorioPDF()">📄 Gerar Relatório e Abrir para Impressão/PDF</button>
+            <button type="button" onclick="gerarRelatorioPDF()">📄 Gerar Relatório para Envio</button>
         </div>
     </form>
 </div>
 
 <script>
     document.getElementById('data').valueAsDate = new Date();
-
-    const photos = {
-        carga: null,
-        completa: null,
-        detalhe: null
-    };
 
     function previewImage(input, previewId) {
         const container = document.getElementById(previewId);
@@ -304,108 +276,23 @@
                 img.src = e.target.result;
                 img.className = 'preview-img';
                 container.appendChild(img);
-                
-                if(previewId === 'previewCarga') photos.carga = e.target.result;
-                if(previewId === 'previewCompleta') photos.completa = e.target.result;
-                if(previewId === 'previewDetalhe') photos.detalhe = e.target.result;
             }
             reader.readAsDataURL(input.files[0]);
         }
     }
 
     function gerarRelatorioPDF() {
+        // Validação básica se os campos obrigatórios estão preenchidos
         const codigo = document.getElementById('codigoPeca').value;
         if (!codigo) {
             alert('Por favor, preencha pelo menos o Código da Peça.');
             document.getElementById('codigoPeca').focus();
             return;
         }
-
-        const etapa = document.querySelector('input[name="etapa"]:checked')?.value || 'Não informada';
-        const dataVal = document.getElementById('data').value;
-        const nota = document.getElementById('notaFiscal').value || 'Não informada';
-        const transportadora = document.getElementById('transportadora').value || 'Não informada';
-        const avaliacao = document.querySelector('input[name="avaliacao"]:checked')?.value || 'Não informada';
-        const mapeamento = document.getElementById('mapeamento').value || 'Não informado';
         
-        const tiposArr = Array.from(document.querySelectorAll('input[name="tipo"]:checked')).map(el => el.value);
-        const tipos = tiposArr.length > 0 ? tiposArr.join(', ') : 'Nenhum selecionado';
-        
-        const descricao = document.getElementById('descricao').value || 'Nenhuma descrição informada.';
-        const consideracoes = document.querySelector('input[name="consideracoes"]:checked')?.value || 'Não informadas';
-
-        const printContent = `
-            <!DOCTYPE html>
-            <html lang="pt-BR">
-            <head>
-                <meta charset="UTF-8">
-                <title>ADDA RNCO - Relatório Final</title>
-                <style>
-                    body { font-family: 'Segoe UI', Arial, sans-serif; padding: 25px; color: #333; line-height: 1.5; }
-                    .header-pdf { text-align: center; background-color: #1b365d; color: white; padding: 12px; border-radius: 6px; margin-bottom: 20px; }
-                    .header-pdf h1 { margin: 0; font-size: 1.2rem; text-transform: uppercase; }
-                    .table-data { width: 100%; border-collapse: collapse; margin-top: 10px; margin-bottom: 15px; }
-                    .table-data td, .table-data th { border: 1px solid #cbd5e1; padding: 10px; text-align: left; font-size: 0.9rem; }
-                    .table-data th { background-color: #f1f5f9; width: 30%; color: #1e293b; font-weight: 600; }
-                    .section-title { background: #2c4d75; color: #fff; padding: 8px 12px; font-size: 0.95rem; font-weight: bold; margin-top: 20px; border-radius: 4px; text-transform: uppercase; }
-                    .photo-container { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px; justify-content: space-around; }
-                    .photo-box { text-align: center; font-size: 0.85rem; font-weight: bold; color: #475569; margin-bottom: 10px; }
-                    .photo-box img { max-width: 230px; max-height: 190px; border: 1px solid #cbd5e1; border-radius: 6px; object-fit: cover; display: block; margin-top: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-                    @media print {
-                        body { padding: 0; }
-                    }
-                </style>
-            </head>
-            <body>
-                <div class="header-pdf">
-                    <h1>ADDA RNCO - Relatório de Não Conformidade em Obra</h1>
-                </div>
-                
-                <div class="section-title">1. Dados de Identificação</div>
-                <table class="table-data">
-                    <tr><th>Etapa de Identificação:</th><td>${etapa}</td></tr>
-                    <tr><th>Data:</th><td>${dataVal}</td></tr>
-                    <tr><th>Número da Nota Fiscal:</th><td>${nota}</td></tr>
-                    <tr><th>Transportadora / Motorista:</th><td>${transportadora}</td></tr>
-                    <tr><th>Código da Peça:</th><td><strong>${codigo}</strong></td></tr>
-                </table>
-
-                <div class="section-title">2. Avaliação e Inconformidade</div>
-                <table class="table-data">
-                    <tr><th>Avaliação de Inconformidade:</th><td><strong>${avaliacao}</strong></td></tr>
-                    <tr><th>Mapeamento (Local na Obra):</th><td>${mapeamento}</td></tr>
-                    <tr><th>Tipos de Inconformidade:</th><td>${tipos}</td></tr>
-                    <tr><th>Descrição do Problema:</th><td>${descricao}</td></tr>
-                    <tr><th>Considerações Finais:</th><td><strong>${consideracoes}</strong></td></tr>
-                </table>
-
-                <div class="section-title">3. Evidências Fotográficas</div>
-                <div class="photo-container">
-                    ${photos.carga ? `<div class="photo-box">Peça na Carga<img src="${photos.carga}"/></div>` : ''}
-                    ${photos.completa ? `<div class="photo-box">Peça Completa<img src="${photos.completa}"/></div>` : ''}
-                    ${photos.detalhe ? `<div class="photo-box">Inconformidade em Destaque<img src="${photos.detalhe}"/></div>` : ''}
-                    ${!photos.carga && !photos.completa && !photos.detalhe ? '<p style="padding:10px; font-size:0.85rem; color:#666;">Nenhuma foto anexada.</p>' : ''}
-                </div>
-
-                <script>
-                    window.onload = function() {
-                        setTimeout(function() {
-                            window.print();
-                        }, 500);
-                    };
-                <\/script>
-            </body>
-            </html>
-        `;
-
-        const printWindow = window.open('', '_blank');
-        if (printWindow) {
-            printWindow.document.open();
-            printWindow.document.write(printContent);
-            printWindow.document.close();
-        } else {
-            alert('O seu navegador bloqueou a abertura da janela. Por favor, permita pop-ups para este site.');
-        }
+        // Aciona o comando limpo de impressão do navegador, que nos celulares atuais 
+        // já converte nativamente a página limpa em PDF para compartilhamento direto.
+        window.print();
     }
 </script>
 
