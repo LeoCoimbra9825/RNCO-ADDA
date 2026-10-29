@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADDA RNCO - Relatório de Não Conformidade de Peças em Obra</title>
+    <style>
+        :root {
+            --primary-color: #1b365d;
+            --secondary-color: #2c4d75;
+            --accent-color: #d9534f;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --border-color: #cccccc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 15px;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .form-section {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #fafafa;
+            border: 1px solid #e1e1e1;
+            border-radius: 6px;
+        }
+
+        .form-section h2 {
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 70px;
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .radio-group label, .checkbox-group label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .photo-upload {
+            border: 2px dashed var(--border-color);
+            padding: 10px;
+            text-align: center;
+            border-radius: 4px;
+            background: #fff;
+            margin-bottom: 10px;
+        }
+
+        .photo-upload input {
+            font-size: 0.8rem;
+        }
+
+        .preview-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+
+        .preview-img {
+            max-width: 80px;
+            max-height: 80px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            object-fit: cover;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebd5b;
+        }
+
+        .btn-print {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-print:hover {
+            background-color: var(--secondary-color);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            .btn-container, .photo-upload input {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ADDA RNCO - Relatório de Não Conformidade de Peças em Obra</h1>
+
+    <form id="rncoForm">
+        <!-- Identificação Básica -->
+        <div class="form-section">
+            <h2>1. Identificação Inicial</h2>
+            
+            <label>Etapa de Identificação da Inconformidade:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="etapa" value="Descarga" required> Descarga</label>
+                <label><input type="radio" name="etapa" value="Montagem"> Montagem</label>
+            </div>
+
+            <label for="data">Data:</label>
+            <input type="date" id="data" required>
+
+            <label for="notaFiscal">Número da Nota (no caso de etapa descarga):</label>
+            <input type="text" id="notaFiscal" placeholder="Ex: NF 12345">
+
+            <label for="transportadora">Transportadora (no caso de etapa descarga):</label>
+            <input type="text" id="transportadora" placeholder="Nome da transportadora / Motorista">
+
+            <label for="codigoPeca">Código e/ou Identificação da Peça:</label>
+            <input type="text" id="codigoPeca" placeholder="Ex: PA01, Viga V-02..." required>
+        </div>
+
+        <!-- Avaliação e Mapeamento -->
+        <div class="form-section">
+            <h2>2. Avaliação e Destino</h2>
+
+            <label>Avaliação de Inconformidade:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="avaliacao" value="Baixo (Alerta para fábrica)" required> Baixo (Alerta para fábrica)</label>
+                <label><input type="radio" name="avaliacao" value="Moderado (Montará com manutenção em obra)"> Moderado (Montagem com manutenção)</label>
+                <label><input type="radio" name="avaliacao" value="Crítico (Peça deve ser devolvida)"> Crítico (Peça deve ser devolvida)</label>
+            </div>
+
+            <label for="mapeamento">Mapeamento: Onde a peça será armazenada e/ou instalada (casos não críticos)?</label>
+            <input type="text" id="mapeamento" placeholder="Ex: Bloco B, 2º Pavimento, Pilares centrais">
+
+            <label>Tipo de Inconformidade Encontrada:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="tipo" value="Dano estrutural"> Dano estrutural</label>
+                <label><input type="checkbox" name="tipo" value="Acabamento"> Acabamento</label>
+                <label><input type="checkbox" name="tipo" value="Geometria"> Geometria</label>
+                <label><input type="checkbox" name="tipo" value="Elétrica"> Elétrica</label>
+                <label><input type="checkbox" name="tipo" value="Chumbador"> Chumbador</label>
+            </div>
+
+            <label for="descricao">Breve descrição do problema (caso as fotos não sejam suficientes):</label>
+            <textarea id="descricao" placeholder="Descreva detalhes adicionais..."></textarea>
+
+            <label>Considerações Finais do Engenheiro:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="consideracoes" value="Liberado sob restrição" required> Liberado sob restrição</label>
+                <label><input type="radio" name="consideracoes" value="Aguardando orientações"> Aguardando orientações</label>
+                <label><input type="radio" name="consideracoes" value="Rejeitada"> Rejeitada</label>
+            </div>
+        </div>
+
+        <!-- Evidências Fotográficas -->
+        <div class="form-section">
+            <h2>3. Evidências Fotográficas</h2>
+
+            <div class="photo-upload">
+                <label for="fotoCarga">Foto da peça em cima da carga (caso etapa descarga):</label>
+                <input type="file" id="fotoCarga" accept="image/*" onchange="previewImage(this, 'previewCarga')">
+                <div id="previewCarga" class="preview-container"></div>
+            </div>
+
+            <div class="photo-upload">
+                <label for="fotoCompleta">Foto da peça completa:</label>
+                <input type="file" id="fotoCompleta" accept="image/*" onchange="previewImage(this, 'previewCompleta')">
+                <div id="previewCompleta" class="preview-container"></div>
+            </div>
+
+            <div class="photo-upload">
+                <label for="fotoDetalhe">Foto da inconformidade em destaque (se possível/preciso, usar trena):</label>
+                <input type="file" id="fotoDetalhe" accept="image/*" onchange="previewImage(this, 'previewDetalhe')">
+                <div id="previewDetalhe" class="preview-container"></div>
+            </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="btn-container">
+            <button type="button" class="btn-whatsapp" onclick="enviarWhatsApp()">📲 Enviar via WhatsApp</button>
+            <button type="button" class="btn-print" onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Definir data atual por padrão
+    document.getElementById('data').valueAsDate = new Date();
+
+    function previewImage(input, previewId) {
+        const container = document.getElementById(previewId);
+        container.innerHTML = '';
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.className = 'preview-img';
+                container.appendChild(img);
+            }
+            reader.readAsDataURL(input.files0);
+        }
+    }
+
+    function enviarWhatsApp() {
+        const etapa = document.querySelector('input[name="etapa"]:checked')?.value || 'Não informado';
+        const data = document.getElementById('data').value;
+        const nota = document.getElementById('notaFiscal').value || 'Não informada';
+        const transportadora = document.getElementById('transportadora').value || 'Não informada';
+        const codigo = document.getElementById('codigoPeca').value || 'Não informado';
+        const avaliacao = document.querySelector('input[name="avaliacao"]:checked')?.value || 'Não informada';
+        const mapeamento = document.getElementById('mapeamento').value || 'Não informado';
+        
+        const tipos = Array.from(document.querySelectorAll('input[name="tipo"]:checked')).map(el => el.value).join(', ') || 'Nenhum selecionado';
+        const descricao = document.getElementById('descricao').value || 'Nenhuma';
+        const consideracoes = document.querySelector('input[name="consideracoes"]:checked')?.value || 'Não informadas';
+
+        let texto = `*ADDA RNCO - RELATÓRIO DE NÃO CONFORMIDADE* %0A%0A` +
+                    `🔹 *Etapa:* ${etapa} %0A` +
+                    `📅 *Data:* ${data} %0A` +
+                    `📄 *Nota Fiscal:* ${nota} %0A` +
+                    `🚚 *Transportadora:* ${transportadora} %0A` +
+                    `🏗️ *Código da Peça:* ${codigo} %0A%0A` +
+                    `⚠️ *Avaliação:* ${avaliacao} %0A` +
+                    `📍 *Mapeamento:* ${mapeamento} %0A` +
+                    `🔍 *Tipos:* ${tipos} %0A` +
+                    `📝 *Descrição:* ${descricao} %0A%0A` +
+                    `📌 *Parecer Engenheiro:* ${consideracoes}`;
+
+        window.open(`https://api.whatsapp.com/send?text=${texto}`, '_blank');
+    }
+</script>
+
+</body>
+</html>
